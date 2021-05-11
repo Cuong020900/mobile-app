@@ -1,8 +1,8 @@
 import "package:flutter/foundation.dart";
 import 'package:shared_preferences/shared_preferences.dart';
 import "../models/user/user.dart";
-import "package:remind_clone_flutter/data/network/api/user_api.dart";
-import "package:remind_clone_flutter/data/network/rest_client.dart";
+import "package:mobile_app/http/api/user_api.dart";
+import "package:mobile_app/http/rest_client.dart";
 
 class UserStore with ChangeNotifier {
   String token;
@@ -56,7 +56,7 @@ class UserStore with ChangeNotifier {
     token = prefs.getString("token");
     if (token != null && token.isNotEmpty) {
       try {
-        var res = await userApi.getProfle(token);
+        var res = await userApi.getProfile(token);
         this.setUser(res["user"] as User);
         return getToken() != null;
       } catch (e) {
