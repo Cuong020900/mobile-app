@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:remind_clone_flutter/stores/user_store.dart';
-import 'package:remind_clone_flutter/widgets/bezierContainer.dart';
+import 'package:mobile_app/stores/user_store.dart';
+import 'package:mobile_app/widgets/bezierContainer.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:remind_clone_flutter/ui/login/login.dart';
+import 'package:mobile_app/ui/login/login.dart';
 
 class RegisterScreen extends StatefulWidget {
   RegisterScreen({Key key, this.title}) : super(key: key);
