@@ -57,8 +57,8 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
    - assets/images/
-   - Database/maths_game_database.db
-   - assets/music/
+  #  - Database/maths_game_database.db
+   - assets/musics/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
