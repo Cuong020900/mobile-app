@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/screens/TrueOrFalseScreen.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mobile_app/screens/KienThucScreen.dart';
+import 'package:mobile_app/screens/KnowledgeScreen.dart';
 import 'package:mobile_app/screens/QuizScreen.dart';
 import 'package:mobile_app/screens/TimeScreen.dart';
 
@@ -14,7 +14,7 @@ class GameModeScreen extends StatelessWidget {
       Navigator.of(context).pop();
     }
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (BuildContext context) => new KienThucScreen(calculation)));
+        builder: (BuildContext context) => new KnowledgeScreen(calculation)));
   }
 
   void _navigateToTimeScreen(BuildContext context, String calculation) {
