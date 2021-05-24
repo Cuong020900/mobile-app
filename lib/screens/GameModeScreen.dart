@@ -1,9 +1,45 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_app/TrueOrFalseScreen.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mobile_app/KienThucScreen.dart';
+import 'package:mobile_app/QuizScreen.dart';
+import 'package:mobile_app/TimeScreen.dart';
 
 class GameModeScreen extends StatelessWidget {
   String calculation;
+
+  void _navigateToKienThuc(BuildContext context, String calculation) {
+    if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
+    }
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (BuildContext context) => new KienThucScreen(calculation)));
+  }
+
+  void _navigateToTimeScreen(BuildContext context, String calculation) {
+    if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
+    }
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (BuildContext context) => new TimeScreen(calculation)));
+  }
+
+  void _navigateToTrueOrFalse(BuildContext context, String calculation) {
+    if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
+    }
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (BuildContext context) => new TrueOrFalseScreen(calculation)));
+  }
+
+  void _navigateToQuizScreen(BuildContext context, String calculation) {
+    if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
+    }
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (BuildContext context) => new QuizScreen(calculation)));
+  }
 
   GameModeScreen(this.calculation);
 
@@ -27,22 +63,30 @@ class GameModeScreen extends StatelessWidget {
               InkWell(
                 child: Image.asset("images/Frame 19.png",
                     alignment: Alignment(0.3, -0.5)),
-                onTap: () {},
+                onTap: () {
+                  _navigateToKienThuc(context, calculation);
+                },
               ),
               InkWell(
                 child: Image.asset("images/Frame 20.png",
                     alignment: Alignment(-0.3, -0.5)),
-                onTap: () {},
+                onTap: () {
+                  _navigateToQuizScreen(context, calculation);
+                },
               ),
               InkWell(
                 child: Image.asset("images/Frame 21.png",
                     alignment: Alignment(0.3, -1)),
-                onTap: () {},
+                onTap: () {
+                  _navigateToTrueOrFalse(context, calculation);
+                },
               ),
               InkWell(
                 child: Image.asset("images/Frame 22.png",
                     alignment: Alignment(-0.3, -1)),
-                onTap: () {},
+                onTap: () {
+                  _navigateToTimeScreen(context, calculation);
+                },
               ),
             ],
           ),
