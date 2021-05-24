@@ -39,7 +39,7 @@ class ResultScreen extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                   image: DecorationImage(
-                image: AssetImage("images/Score title.png"),
+                image: AssetImage("assets/images/Score title.png"),
                 fit: BoxFit.contain,
               )),
             ),
@@ -53,19 +53,19 @@ class ResultScreen extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                   image: DecorationImage(
-                image: AssetImage("images/Scores.png"),
+                image: AssetImage("assets/images/Scores.png"),
                 fit: BoxFit.contain,
               )),
             ),
-            Image.asset("images/result_line.png"),
+            Image.asset("assets/images/result_line.png"),
             InkWell(
-              child: Image.asset("images/Main menu.png"),
+              child: Image.asset("assets/images/Main menu.png"),
               onTap: () {
                 _navigateToMainScreen(context);
               },
             ),
             InkWell(
-              child: Image.asset("images/Play again.png"),
+              child: Image.asset("assets/images/Play again.png"),
               onTap: () {
                 _navigateToGameModeScreen(context);
               },
@@ -74,7 +74,7 @@ class ResultScreen extends StatelessWidget {
         ),
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage("images/result_background.png"),
+          image: AssetImage("assets/images/result_background.png"),
           fit: BoxFit.fill,
         )),
       ),
