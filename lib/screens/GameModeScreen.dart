@@ -61,28 +61,28 @@ class GameModeScreen extends StatelessWidget {
               Text(""),
               Text(""),
               InkWell(
-                child: Image.asset("assets/images//Frame 19.png",
+                child: Image.asset("assets/images/Frame 19.png",
                     alignment: Alignment(0.3, -0.5)),
                 onTap: () {
                   _navigateToKienThuc(context, calculation);
                 },
               ),
               InkWell(
-                child: Image.asset("assets/images//Frame 20.png",
+                child: Image.asset("assets/images/Frame 20.png",
                     alignment: Alignment(-0.3, -0.5)),
                 onTap: () {
                   _navigateToQuizScreen(context, calculation);
                 },
               ),
               InkWell(
-                child: Image.asset("assets/images//Frame 21.png",
+                child: Image.asset("assets/images/Frame 21.png",
                     alignment: Alignment(0.3, -1)),
                 onTap: () {
                   _navigateToTrueOrFalse(context, calculation);
                 },
               ),
               InkWell(
-                child: Image.asset("assets/images//Frame 22.png",
+                child: Image.asset("assets/images/Frame 22.png",
                     alignment: Alignment(-0.3, -1)),
                 onTap: () {
                   _navigateToTimeScreen(context, calculation);
@@ -93,7 +93,7 @@ class GameModeScreen extends StatelessWidget {
         ),
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage("assets/images//background.png"),
+          image: AssetImage("assets/images/background.png"),
           fit: BoxFit.fill,
         )),
       ),

@@ -201,7 +201,7 @@ class _QuizScreen extends State<QuizScreen> {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Image.asset(
-                      "assets/images//back_image.png",
+                      "assets/images/back_image.png",
                       scale: 1.7,
                     ),
                   ),
@@ -222,7 +222,7 @@ class _QuizScreen extends State<QuizScreen> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                       image: AssetImage(
-                          "assets/images//Number of Right Answer.png"),
+                          "assets/images/Number of Right Answer.png"),
                       fit: BoxFit.cover,
                     )),
                   ),
@@ -242,7 +242,7 @@ class _QuizScreen extends State<QuizScreen> {
                 ),
                 Container(
                   child: Image.asset(
-                    "assets/images//female_teacher_1.png",
+                    "assets/images/female_teacher_1.png",
                     scale: 0.8,
                   ),
                 )
@@ -253,7 +253,7 @@ class _QuizScreen extends State<QuizScreen> {
                 Align(
                   alignment: Alignment(-0.2, -1.5),
                   child: Image.asset(
-                    "assets/images//exam_paper.png",
+                    "assets/images/exam_paper.png",
                   ),
                 ),
                 GridView.count(
@@ -326,7 +326,7 @@ class _QuizScreen extends State<QuizScreen> {
         ),
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage("assets/images//class_background.jpg"),
+          image: AssetImage("assets/images/class_background.jpg"),
           fit: BoxFit.cover,
         )),
       ),

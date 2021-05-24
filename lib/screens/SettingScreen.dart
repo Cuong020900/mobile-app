@@ -81,7 +81,7 @@ class _MyMusicSlider extends State<MyMusicSlider> {
       children: [
         Column(
           children: [
-            Image.asset("assets/images//music.png",
+            Image.asset("assets/images/music.png",
                 alignment: Alignment.topCenter, scale: 1.8),
           ],
         ),
@@ -139,7 +139,7 @@ class _MyBrightnessSlider extends State<MyBrigtnessSlider> {
       children: [
         Column(
           children: [
-            Image.asset("assets/images//brightness.png",
+            Image.asset("assets/images/brightness.png",
                 alignment: Alignment(-0.5, 1), scale: 1.5),
           ],
         ),
