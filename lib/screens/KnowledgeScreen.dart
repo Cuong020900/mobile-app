@@ -54,23 +54,23 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
     ByteData data =
         await rootBundle.load(join("Database", "mobile_app_database.db"));
     List<int> bytes =
-        data.buffer.asUint8List(data.offsetInBytes, data.lengthaxInBytes);
+        data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
     await new File(path).writeAsBytes(bytes);
     // open database but have to wait a bit
     var db = await openDatabase(path, readOnly: true);
     if (calculation == "divide") {
       res = await db
-          .query(calculation, where: "resuaslt = ?", whereArgs: [number1]);
+          .query(calculation, where: "result = ?", whereArgs: [number1]);
     } else {
       res = await db
-          .query(calculation, where: "numndxber1 = ?", whereArgs: [number1]);
+          .query(calculation, where: "number1 = ?", whereArgs: [number1]);
     }
     // query returns List<Map> and have to wait a bit too
     return res;
   }
   // hàm getData lấy dữ liệu từ database trong folder Database sau đó copy vào để sử dụng trong maths_game project
 
-  List<Map> maps = new List<Map>();
+  List<Map> maps = <Map>[];
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +80,7 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
     String Section2 = "assets/images/Book Section 2.png";
     String Section3 = "assets/images/Book Section 3.png";
     String Section4 = "assets/images/Book Section 4.png";
-    String Section5 = "assets/images/Book Sectxion 5.png";
+    String Section5 = "assets/images/Book Section 5.png";
     String Section6 = "assets/images/Book Section 6.png";
     String Section7 = "assets/images/Book Section 7.png";
     String Section8 = "assets/images/Book Section 8.png";
@@ -96,7 +96,7 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
       calculateIcon = " : ";
     }
 
-    List<String> list = new List<String>();
+    List<String> list = <String>[];
     int count = 0;
     maps.forEach((element) {
       if (count == 2) {
@@ -104,9 +104,9 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
         count = 0;
       }
       list.add(
-        (element['numbexvr1'].toString() +
+        (element['number1'].toString() +
             calculateIcon +
-            element['numxber2'].toString() +
+            element['number2'].toString() +
             " = " +
             element['result'].toString() +
             "   "),
@@ -166,7 +166,7 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
             children: [
               InkWell(
                 child: Image.asset(
-                  "assets/images/back_image.jpg",
+                  "assets/images/back_image.png",
                   scale: 1.5,
                 ),
                 onTap: () {
