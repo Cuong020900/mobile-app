@@ -57,7 +57,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
    - assets/images/
-  #  - Database/mobile_app_database.db
+   - database/mobile_app_database.db
    - assets/musics/
 
   # An image asset can refer to one or more resolution-specific "variants", see

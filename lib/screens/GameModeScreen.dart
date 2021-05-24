@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_app/TrueOrFalseScreen.dart';
+import 'package:mobile_app/screens/TrueOrFalseScreen.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mobile_app/KienThucScreen.dart';
-import 'package:mobile_app/QuizScreen.dart';
-import 'package:mobile_app/TimeScreen.dart';
+import 'package:mobile_app/screens/KienThucScreen.dart';
+import 'package:mobile_app/screens/QuizScreen.dart';
+import 'package:mobile_app/screens/TimeScreen.dart';
 
 class GameModeScreen extends StatelessWidget {
   String calculation;
@@ -61,28 +61,28 @@ class GameModeScreen extends StatelessWidget {
               Text(""),
               Text(""),
               InkWell(
-                child: Image.asset("images/Frame 19.png",
+                child: Image.asset("assets/images//Frame 19.png",
                     alignment: Alignment(0.3, -0.5)),
                 onTap: () {
                   _navigateToKienThuc(context, calculation);
                 },
               ),
               InkWell(
-                child: Image.asset("images/Frame 20.png",
+                child: Image.asset("assets/images//Frame 20.png",
                     alignment: Alignment(-0.3, -0.5)),
                 onTap: () {
                   _navigateToQuizScreen(context, calculation);
                 },
               ),
               InkWell(
-                child: Image.asset("images/Frame 21.png",
+                child: Image.asset("assets/images//Frame 21.png",
                     alignment: Alignment(0.3, -1)),
                 onTap: () {
                   _navigateToTrueOrFalse(context, calculation);
                 },
               ),
               InkWell(
-                child: Image.asset("images/Frame 22.png",
+                child: Image.asset("assets/images//Frame 22.png",
                     alignment: Alignment(-0.3, -1)),
                 onTap: () {
                   _navigateToTimeScreen(context, calculation);
@@ -93,7 +93,7 @@ class GameModeScreen extends StatelessWidget {
         ),
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage("images/background.png"),
+          image: AssetImage("assets/images//background.png"),
           fit: BoxFit.fill,
         )),
       ),

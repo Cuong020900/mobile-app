@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:math';
+
 import 'package:mobile_app/screens/GameModeScreen.dart';
 
 class QuizScreen extends StatefulWidget {
@@ -23,7 +25,7 @@ class _QuizScreen extends State<QuizScreen> {
   int trueAnswer = 0;
   int rightAnswerNumberIndexLeft;
   int choice1Index, choice2Index, choice3Index, choice4Index;
-  List<String> answerList = new List<String>();
+  List<String> answerList = <String>[];
   var random = new Random();
   MaterialColor choice1 = Colors.grey;
   MaterialColor choice2 = Colors.grey;
@@ -45,6 +47,7 @@ class _QuizScreen extends State<QuizScreen> {
     }
     Navigator.of(context).push(MaterialPageRoute(
         builder: (BuildContext context) =>
+            new ResultScreen(widget.calculation, trueAnswer)));
   }
 
   _QuizScreen(String cal) {
@@ -55,7 +58,45 @@ class _QuizScreen extends State<QuizScreen> {
   }
   //constructor
 
- 
+  checkAnswer(int numberIndexLeft, BuildContext context) {
+    setState(() {
+      if (numberIndexLeft == rightAnswerNumberIndexLeft) {
+        trueAnswer++;
+      } else {
+        trueAnswer--;
+      }
+      if (rightAnswerNumberIndexLeft == 4) {
+        choice4 = Colors.green;
+        choice3 = Colors.red;
+        choice2 = Colors.red;
+        choice1 = Colors.red;
+      } else if (rightAnswerNumberIndexLeft == 3) {
+        choice3 = Colors.green;
+        choice4 = Colors.red;
+        choice2 = Colors.red;
+        choice1 = Colors.red;
+      } else if (rightAnswerNumberIndexLeft == 2) {
+        choice2 = Colors.green;
+        choice4 = Colors.red;
+        choice3 = Colors.red;
+        choice1 = Colors.red;
+      } else if (rightAnswerNumberIndexLeft == 1) {
+        choice1 = Colors.green;
+        choice4 = Colors.red;
+        choice2 = Colors.red;
+        choice3 = Colors.red;
+      }
+      stateIndex++;
+      numberOfQuestion++;
+      if (numberOfQuestion == 20)
+        Timer _timer = Timer(Duration(seconds: 2), () {
+          _navigateToResultScreen(context);
+        });
+    });
+  }
+  // each choice has different number of Index left in index list when they call getIndex function
+  // this fuction checks if choice's numberIndexLeft equals to the numberIndexLeft of the right answer (similar to ID check)
+
   @override
   Widget build(BuildContext context) {
     String calculateIcon, result;
@@ -108,7 +149,7 @@ class _QuizScreen extends State<QuizScreen> {
       // insert 4 answers into list
     }
 
-    List<int> indexList = <int>[];
+    List<int> indexList = List<int>();
     indexList.add(0);
     indexList.add(1);
     indexList.add(2);
@@ -134,7 +175,7 @@ class _QuizScreen extends State<QuizScreen> {
     }
 
     int nextQuestion() {
-      Timer _timer = Timer(Duration(seconds: 2), () {
+      Timer(Duration(seconds: 2), () {
         setState(() {
           number1 = random.nextInt(20) + 1;
           number2 = random.nextInt(20) + 1;
@@ -160,7 +201,7 @@ class _QuizScreen extends State<QuizScreen> {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Image.asset(
-                      "images/back_image.png",
+                      "assets/images//back_image.png",
                       scale: 1.7,
                     ),
                   ),
@@ -180,7 +221,8 @@ class _QuizScreen extends State<QuizScreen> {
                     ),
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage("images/Number of Right Answer.png"),
+                      image: AssetImage(
+                          "assets/images//Number of Right Answer.png"),
                       fit: BoxFit.cover,
                     )),
                   ),
@@ -200,7 +242,7 @@ class _QuizScreen extends State<QuizScreen> {
                 ),
                 Container(
                   child: Image.asset(
-                    "images/female_teacher_1.png",
+                    "assets/images//female_teacher_1.png",
                     scale: 0.8,
                   ),
                 )
@@ -211,7 +253,7 @@ class _QuizScreen extends State<QuizScreen> {
                 Align(
                   alignment: Alignment(-0.2, -1.5),
                   child: Image.asset(
-                    "images/exam_paper.png",
+                    "assets/images//exam_paper.png",
                   ),
                 ),
                 GridView.count(
@@ -284,7 +326,7 @@ class _QuizScreen extends State<QuizScreen> {
         ),
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage("images/class_background.jpg"),
+          image: AssetImage("assets/images//class_background.jpg"),
           fit: BoxFit.cover,
         )),
       ),
