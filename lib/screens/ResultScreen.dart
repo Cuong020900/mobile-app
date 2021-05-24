@@ -22,13 +22,16 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
       body: Container(
         child: GridView.count(
           childAspectRatio: 4.4 / 1,
+          mainAxisSpacing: 40,
           crossAxisCount: 1,
           children: [
             Container(
               child: Align(
+                alignment: Alignment(0, 0),
                 child: Text(
                   "Your Scores",
                 ),
@@ -37,10 +40,13 @@ class ResultScreen extends StatelessWidget {
                   image: DecorationImage(
                 image: AssetImage("assets/images/Score title.png"),
                 fit: BoxFit.contain,
+              )),
             ),
+            Container(
               child: Align(
                 alignment: Alignment(0, 0),
                 child: Text(
+                  finalScore.toString(),
                   style: TextStyle(fontSize: 48),
                 ),
               ),
@@ -67,6 +73,7 @@ class ResultScreen extends StatelessWidget {
         ),
         decoration: BoxDecoration(
             image: DecorationImage(
+          image: AssetImage("assets/images/result_background.png"),
           fit: BoxFit.fill,
         )),
       ),
