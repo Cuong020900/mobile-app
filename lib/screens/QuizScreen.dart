@@ -2,11 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:math';
-
 import 'package:mobile_app/screens/GameModeScreen.dart';
+import 'package:mobile_app/screens/ResultScreen.dart';
 
 class QuizScreen extends StatefulWidget {
   String calculation;
