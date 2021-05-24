@@ -49,7 +49,7 @@ class MainScreen extends StatelessWidget {
               child: Image.asset(
                 "images/app_list.png",
                 scale: 1.3,
-                alignment: Alignment(-0.9, -0.85),
+                alignment: Alignment(-0.9,-0.85),
               ),
             ),
             InkWell(
@@ -59,7 +59,7 @@ class MainScreen extends StatelessWidget {
               child: Image.asset(
                 "images/settings_icon.png",
                 scale: 1.4,
-                alignment: Alignment(0.9, -0.85),
+                alignment: Alignment(0.9,-0.85),
               ),
               // Ảnh app_list được đặt trong một InkWell có hàm onTap(), khi Tap vào ảnh, sẽ gọi hàm _navigateToSettings
               // để chuyển sang màn hình Settings
@@ -68,28 +68,28 @@ class MainScreen extends StatelessWidget {
             Text(""),
             InkWell(
               child: Image.asset("images/plus_image.png",
-                  alignment: Alignment(0.5, -1)),
+                  alignment: Alignment(0.5,-1)),
               onTap: () {
                 _navigateToGameModeScreen(context, "plus");
               },
             ),
             InkWell(
               child: Image.asset("images/minus_image.png",
-                  alignment: Alignment(-0.5, -1)),
+                  alignment: Alignment(-0.5,-1)),
               onTap: () {
                 _navigateToGameModeScreen(context, "minus");
               },
             ),
             InkWell(
               child: Image.asset("images/duplicate_image.png",
-                  alignment: Alignment(0.5, -0.8)),
+                  alignment: Alignment(0.5,-0.8)),
               onTap: () {
                 _navigateToGameModeScreen(context, "duplicate");
               },
             ),
             InkWell(
               child: Image.asset("images/divide_image.png",
-                  alignment: Alignment(-0.5, -0.8)),
+                  alignment: Alignment(-0.5,-0.8)),
               onTap: () {
                 _navigateToGameModeScreen(context, "divide");
               },
