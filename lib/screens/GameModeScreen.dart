@@ -18,8 +18,6 @@ class GameModeScreen extends StatelessWidget {
   }
 
   void _navigateToTimeScreen(BuildContext context, String calculation) {
-    if (Navigator.of(context).canPop()) {
-      Navigator.of(context).pop();
     }
     Navigator.of(context).push(MaterialPageRoute(
         builder: (BuildContext context) => new TimeScreen(calculation)));
@@ -61,7 +59,7 @@ class GameModeScreen extends StatelessWidget {
               Text(""),
               Text(""),
               InkWell(
-                child: Image.asset("assets/images/Frame 19.png",
+                child: Image.asset("assets/images/Framse 19.png",
                     alignment: Alignment(0.3, -0.5)),
                 onTap: () {
                   _navigateToKienThuc(context, calculation);
@@ -69,7 +67,7 @@ class GameModeScreen extends StatelessWidget {
               ),
               InkWell(
                 child: Image.asset("assets/images/Frame 20.png",
-                    alignment: Alignment(-0.3, -0.5)),
+                    alignment: Alignment(-0.3, -0.35)),
                 onTap: () {
                   _navigateToQuizScreen(context, calculation);
                 },
@@ -93,7 +91,7 @@ class GameModeScreen extends StatelessWidget {
         ),
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage("assets/images/background.png"),
+          image: AssetImage("assets/images/backgrsound.png"),
           fit: BoxFit.fill,
         )),
       ),
