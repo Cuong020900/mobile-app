@@ -1,0 +1,3 @@
+getRouter() {
+  return {};
+}
