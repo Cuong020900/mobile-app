@@ -52,7 +52,7 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
     var res;
 
     ByteData data =
-        await rootBundle.load(join("Database", "mobile_app_database.db"));
+        await rootBundle.load(join("database", "mobile_app_database.db"));
     List<int> bytes =
         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
     await new File(path).writeAsBytes(bytes);
@@ -166,7 +166,7 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
             children: [
               InkWell(
                 child: Image.asset(
-                  "assets/images/back_image.png",
+                  "assets/images/no_back_image.png",
                   scale: 1.5,
                 ),
                 onTap: () {
@@ -174,8 +174,9 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
                 },
               ),
               Align(
-                  alignment: Alignment(1, 0.7),
+                  alignment: Alignment(1.1, 2),
                   child: Container(
+                    alignment: Alignment(0, 2),
                     height: 220,
                     width: 210,
                     child: Text(
@@ -188,7 +189,7 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
           Align(
             alignment: Alignment(0.2, -0.4),
             child: Image.asset(
-              "assets/images/talk_bubble_kienthuc.png",
+              "assets/images/no_talk_bubble_kienthuc.png",
             ),
           ),
           Stack(
