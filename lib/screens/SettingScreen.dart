@@ -27,7 +27,7 @@ class SettingsScreen extends StatelessWidget {
         //cú pháp dưới đây để cài đặt background cho Screen
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage("assets/images/settings_background.png"),
+          image: AssetImage("assets/images/no_settings_background.png"),
           fit: BoxFit.fill,
         )),
       ),
@@ -82,12 +82,12 @@ class _MyMusicSlider extends State<MyMusicSlider> {
         Column(
           children: [
             Image.asset("assets/images/music.png",
-                alignment: Alignment.topCenter, scale: 1.8),
+                alignment: Alignment.topCenter, scale: 2.5),
           ],
         ),
         Column(
           children: [
-            Text("  Music         ", style: TextStyle(fontSize: 18)),
+            Text("  Music         ", style: TextStyle(fontSize: 12)),
           ],
         ),
         (_currentSliderValue != null || maxSliderValue != null)
@@ -140,12 +140,12 @@ class _MyBrightnessSlider extends State<MyBrigtnessSlider> {
         Column(
           children: [
             Image.asset("assets/images/brightness.png",
-                alignment: Alignment(-0.5, 1), scale: 1.5),
+                alignment: Alignment(-0.5, 1), scale: 2.3),
           ],
         ),
         Column(
           children: [
-            Text(" Brightness", style: TextStyle(fontSize: 18)),
+            Text(" Brightness", style: TextStyle(fontSize: 12)),
           ],
         ),
         (_brightness != null)

@@ -9,7 +9,7 @@ class MainScreen extends StatelessWidget {
   static AudioCache player = AudioCache();
   playMusic() async {
     player.loop(
-        'music/Dragon Ball Super Soundtrack Full _ Ultimate Battle - Akira Kushida Lyrics  Reupload.mp3',
+        'musics/background_music.mp3',
         volume: 2.0);
   }
 
@@ -47,7 +47,7 @@ class MainScreen extends StatelessWidget {
                         "com.GamesForKids.Mathgames.MultiplicationTables");
               },
               child: Image.asset(
-                "images/app_list.png",
+                "assets/images/app_list.png",
                 scale: 1.3,
                 alignment: Alignment(-0.9,-0.85),
               ),
@@ -57,7 +57,7 @@ class MainScreen extends StatelessWidget {
                 _navigateToSettings(context);
               },
               child: Image.asset(
-                "images/settings_icon.png",
+                "assets/images/settings_icon.png",
                 scale: 1.4,
                 alignment: Alignment(0.9,-0.85),
               ),
@@ -67,28 +67,28 @@ class MainScreen extends StatelessWidget {
             Text(""),
             Text(""),
             InkWell(
-              child: Image.asset("images/plus_image.png",
+              child: Image.asset("assets/images/plus_image.png",
                   alignment: Alignment(0.5,-1)),
               onTap: () {
                 _navigateToGameModeScreen(context, "plus");
               },
             ),
             InkWell(
-              child: Image.asset("images/minus_image.png",
+              child: Image.asset("assets/images/minus_image.png",
                   alignment: Alignment(-0.5,-1)),
               onTap: () {
                 _navigateToGameModeScreen(context, "minus");
               },
             ),
             InkWell(
-              child: Image.asset("images/duplicate_image.png",
+              child: Image.asset("assets/images/duplicate_image.png",
                   alignment: Alignment(0.5,-0.8)),
               onTap: () {
                 _navigateToGameModeScreen(context, "duplicate");
               },
             ),
             InkWell(
-              child: Image.asset("images/divide_image.png",
+              child: Image.asset("assets/images/divide_image.png",
                   alignment: Alignment(-0.5,-0.8)),
               onTap: () {
                 _navigateToGameModeScreen(context, "divide");
@@ -98,7 +98,7 @@ class MainScreen extends StatelessWidget {
         ),
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage("images/background.png"),
+          image: AssetImage("assets/images/background.png"),
           fit: BoxFit.fill,
         )),
       ),
