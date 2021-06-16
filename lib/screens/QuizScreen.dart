@@ -26,10 +26,11 @@ class _QuizScreen extends State<QuizScreen> {
   int choice1Index, choice2Index, choice3Index, choice4Index;
   List<String> answerList = <String>[];
   var random = new Random();
-  MaterialColor choice1 = Colors.grey;
-  MaterialColor choice2 = Colors.grey;
-  MaterialColor choice3 = Colors.grey;
-  MaterialColor choice4 = Colors.grey;
+
+  String choice1 = "assets/images/blue_select_box.png";
+  String choice2 = "assets/images/blue_select_box.png";
+  String choice3 = "assets/images/blue_select_box.png";
+  String choice4 = "assets/images/blue_select_box.png";
 
   void _navigateBack(BuildContext context) {
     if (Navigator.of(context).canPop()) {
@@ -55,6 +56,7 @@ class _QuizScreen extends State<QuizScreen> {
     number2 = random.nextInt(20) + 1;
     // getRandomCalculation(number1, number2);
   }
+
   //constructor
 
   checkAnswer(int numberIndexLeft, BuildContext context) {
@@ -64,26 +66,19 @@ class _QuizScreen extends State<QuizScreen> {
       } else {
         trueAnswer--;
       }
+      choice1 = "assets/images/red_select_box.png";
+      choice2 = "assets/images/red_select_box.png";
+      choice3 = "assets/images/red_select_box.png";
+      choice4 = "assets/images/red_select_box.png";
+
       if (rightAnswerNumberIndexLeft == 4) {
-        choice4 = Colors.green;
-        choice3 = Colors.red;
-        choice2 = Colors.red;
-        choice1 = Colors.red;
+        choice4 = "assets/images/green_select_box.png";
       } else if (rightAnswerNumberIndexLeft == 3) {
-        choice3 = Colors.green;
-        choice4 = Colors.red;
-        choice2 = Colors.red;
-        choice1 = Colors.red;
+        choice3 = "assets/images/green_select_box.png";
       } else if (rightAnswerNumberIndexLeft == 2) {
-        choice2 = Colors.green;
-        choice4 = Colors.red;
-        choice3 = Colors.red;
-        choice1 = Colors.red;
+        choice2 = "assets/images/green_select_box.png";
       } else if (rightAnswerNumberIndexLeft == 1) {
-        choice1 = Colors.green;
-        choice4 = Colors.red;
-        choice2 = Colors.red;
-        choice3 = Colors.red;
+        choice1 = "assets/images/green_select_box.png";
       }
       stateIndex++;
       numberOfQuestion++;
@@ -93,6 +88,7 @@ class _QuizScreen extends State<QuizScreen> {
         });
     });
   }
+
   // each choice has different number of Index left in index list when they call getIndex function
   // this fuction checks if choice's numberIndexLeft equals to the numberIndexLeft of the right answer (similar to ID check)
 
@@ -178,10 +174,10 @@ class _QuizScreen extends State<QuizScreen> {
         setState(() {
           number1 = random.nextInt(20) + 1;
           number2 = random.nextInt(20) + 1;
-          choice1 = Colors.grey;
-          choice2 = Colors.grey;
-          choice3 = Colors.grey;
-          choice4 = Colors.grey;
+          choice1 = "assets/images/blue_select_box.png";
+          choice2 = "assets/images/blue_select_box.png";
+          choice3 = "assets/images/blue_select_box.png";
+          choice4 = "assets/images/blue_select_box.png";
           stateIndex++;
         });
       });
@@ -191,23 +187,11 @@ class _QuizScreen extends State<QuizScreen> {
     return Scaffold(
       body: Container(
         child: GridView.count(
-          childAspectRatio: (1.7 / 1),
+          childAspectRatio: (1.7 / 0.7),
           crossAxisCount: 1,
           children: [
             Stack(
               children: [
-                InkWell(
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Image.asset(
-                      "assets/images/back_image.png",
-                      scale: 1.7,
-                    ),
-                  ),
-                  onTap: () {
-                    _navigateBack(context);
-                  },
-                ),
                 Align(
                   alignment: Alignment(0.1, -1),
                   child: Container(
@@ -222,22 +206,29 @@ class _QuizScreen extends State<QuizScreen> {
                         image: DecorationImage(
                       image: AssetImage(
                           "assets/images/Number of Right Answer.png"),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     )),
                   ),
                 ),
               ],
             ),
             GridView.count(
-              crossAxisCount: 3,
+              crossAxisCount: 2,
               children: [
-                Text(""),
-                Align(
-                  alignment: Alignment(0.6, -1),
-                  child: Text(
-                    question,
-                    style: TextStyle(fontSize: 30),
-                  ),
+                Stack(
+                  children: [
+                    Image.asset(
+                      "assets/images/question_frame.png",
+                      alignment: Alignment(0.9, 0),
+                    ),
+                    Align(
+                      alignment: Alignment(0, -0.5),
+                      child: Text(
+                        question,
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ),
+                  ],
                 ),
                 Container(
                   child: Image.asset(
@@ -248,85 +239,130 @@ class _QuizScreen extends State<QuizScreen> {
               ],
             ),
             Stack(
+              alignment: Alignment(-0.2, -1.1),
               children: [
-                Align(
-                  alignment: Alignment(-0.2, -1.5),
-                  child: Image.asset(
-                    "assets/images/exam_paper.png",
-                  ),
-                ),
-                GridView.count(
-                  crossAxisCount: 5,
-                  childAspectRatio: 2.5 / 1,
+                Stack(
                   children: [
-                    Text(""),
-                    Text(""),
-                    Text(""),
-                    Text(""),
-                    Text(""),
-                    Text(""),
-                    InkWell(
-                      child: Text(
-                        answerList.elementAt(choice4Index),
-                        style:
-                            TextStyle(backgroundColor: choice4, fontSize: 32),
+                    Align(
+                      alignment: Alignment(-0.2, -0.8),
+                      child: InkWell(
+                        child: Image.asset(
+                          choice1,
+                        ),
+                        onTap: () {
+                          checkAnswer(1, context);
+                          nextQuestion();
+                        },
                       ),
-                      onTap: () {
-                        checkAnswer(4, context);
-                        nextQuestion();
-                      },
                     ),
-                    InkWell(
-                      child: Text(
-                        answerList.elementAt(choice3Index),
-                        style:
-                            TextStyle(backgroundColor: choice3, fontSize: 32),
+                    Align(
+                      alignment: Alignment(0, -0.8),
+                      child: InkWell(
+                        child: Text(
+                          answerList.elementAt(choice1Index),
+                          style: TextStyle(fontSize: 32),
+                        ),
+                        onTap: () {
+                          checkAnswer(1, context);
+                          nextQuestion();
+                        },
                       ),
-                      onTap: () {
-                        checkAnswer(3, context);
-                        nextQuestion();
-                      },
-                    ),
-                    Text(""),
-                    Text(""),
-                    Text(""),
-                    Text(""),
-                    Text(""),
-                    Text(""),
-                    Text(""),
-                    Text(""),
-                    InkWell(
-                      child: Text(
-                        answerList.elementAt(choice2Index),
-                        style:
-                            TextStyle(backgroundColor: choice2, fontSize: 32),
-                      ),
-                      onTap: () {
-                        checkAnswer(2, context);
-                        nextQuestion();
-                      },
-                    ),
-                    InkWell(
-                      child: Text(
-                        answerList.elementAt(choice1Index),
-                        style:
-                            TextStyle(backgroundColor: choice1, fontSize: 32),
-                      ),
-                      onTap: () {
-                        checkAnswer(1, context);
-                        nextQuestion();
-                      },
-                    ),
+                    )
                   ],
-                )
+                ),
+                Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment(-0.2, 0.2),
+                      child: InkWell(
+                        child: Image.asset(
+                          choice2,
+                        ),
+                        onTap: () {
+                          checkAnswer(2, context);
+                          nextQuestion();
+                        },
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0, 0.2),
+                      child: InkWell(
+                        child: Text(
+                          answerList.elementAt(choice2Index),
+                          style: TextStyle(fontSize: 32),
+                        ),
+                        onTap: () {
+                          checkAnswer(2, context);
+                          nextQuestion();
+                        },
+                      ),
+                    )
+                  ],
+                ),
+                Stack(
+                  children: [
+                    Align(
+                        alignment: Alignment(-0.2, 1.2),
+                        child: InkWell(
+                          child: Image.asset(
+                            choice3,
+                          ),
+                          onTap: () {
+                            checkAnswer(3, context);
+                            nextQuestion();
+                          },
+                        )),
+                    Align(
+                      alignment: Alignment(0, 1.2),
+                      child: InkWell(
+                        child: Text(
+                          answerList.elementAt(choice3Index),
+                          style: TextStyle(fontSize: 32),
+                        ),
+                        onTap: () {
+                          checkAnswer(3, context);
+                          nextQuestion();
+                        },
+                      ),
+                    )
+                  ],
+                ),
+                Stack(
+                  children: [
+                    Align(
+                        alignment: Alignment(-0.2, 2.2),
+                        child: InkWell(
+                          child: Image.asset(
+                            choice4,
+                          ),
+                          onTap: () {
+                            checkAnswer(4, context);
+                            nextQuestion();
+                          },
+                        )),
+                    Align(
+                      alignment: Alignment(0, 2.2),
+                      child: InkWell(
+                        child: Text(
+                          answerList.elementAt(choice4Index),
+                          style: TextStyle(fontSize: 32),
+                        ),
+                        onTap: () {
+                          checkAnswer(4, context);
+                          nextQuestion();
+                        },
+                      ),
+                    )
+                  ],
+                ),
               ],
             )
           ],
         ),
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage("assets/images/class_background.jpg"),
-          fit: BoxFit.cover,
+          image: AssetImage("assets/images/background_2.png"),
+          fit: BoxFit.fill,
         )),
       ),
     );

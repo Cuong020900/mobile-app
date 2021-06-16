@@ -9,7 +9,7 @@ class MainScreen extends StatelessWidget {
   static AudioCache player = AudioCache();
   playMusic() async {
     player.loop(
-        'musics/background_music.mp3',
+        'musics/bg3.mp3',
         volume: 2.0);
   }
 

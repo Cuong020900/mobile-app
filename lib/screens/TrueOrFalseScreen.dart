@@ -26,7 +26,7 @@ class _TrueOrFalseScreen extends State<TrueOrFalseScreen> {
     String path = join(documentsDirectory.path, "working_data.db");
 
     ByteData data =
-        await rootBundle.load(join("Database", "maths_game_database.db"));
+        await rootBundle.load(join("database", "maths_game_database.db"));
     List<int> bytes =
         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
     await new File(path).writeAsBytes(bytes);
@@ -97,7 +97,7 @@ class _TrueOrFalseScreen extends State<TrueOrFalseScreen> {
         trueAnswer++;
         resultImage = "assets/images/smile_face.png";
         resultText = "Correct!";
-        resultTextColor = Colors.green;
+        // resultTextColor = Colors.green;
       } else if ((((number1 + number2).toString() == result) ||
               ((number1 - number2).toString() == result) ||
               ((number1 * number2).toString() == result) ||
@@ -106,7 +106,7 @@ class _TrueOrFalseScreen extends State<TrueOrFalseScreen> {
         falseAnswer++;
         resultImage = "assets/images/cry_face.png";
         resultText = "Wrong!";
-        resultTextColor = Colors.red;
+        // resultTextColor = Colors.red;
       } else if ((((number1 + number2).toString() != result) ||
               ((number1 - number2).toString() != result) ||
               ((number1 * number2).toString() != result) ||
@@ -115,7 +115,7 @@ class _TrueOrFalseScreen extends State<TrueOrFalseScreen> {
         trueAnswer++;
         resultImage = "assets/images/smile_face.png";
         resultText = "Correct!";
-        resultTextColor = Colors.green;
+        // resultTextColor = Colors.green;
       } else if ((((number1 + number2).toString() != result) ||
               ((number1 - number2).toString() != result) ||
               ((number1 * number2).toString() != result) ||
@@ -124,7 +124,7 @@ class _TrueOrFalseScreen extends State<TrueOrFalseScreen> {
         falseAnswer++;
         resultImage = "assets/images/cry_face.png";
         resultText = "Wrong!";
-        resultTextColor = Colors.red;
+        // resultTextColor = Colors.red;
       }
 
       showDialog(
@@ -217,7 +217,7 @@ class _TrueOrFalseScreen extends State<TrueOrFalseScreen> {
     //create question
 
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.white,
       body: Container(
         child: GridView.count(
           childAspectRatio: (2.5 / 1),
@@ -229,7 +229,7 @@ class _TrueOrFalseScreen extends State<TrueOrFalseScreen> {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Image.asset(
-                      "assets/images/back_image.png",
+                      "assets/images/no_back_image.png",
                       scale: 1.7,
                     ),
                   ),
@@ -294,7 +294,7 @@ class _TrueOrFalseScreen extends State<TrueOrFalseScreen> {
                   child: InkWell(
                     child: Image.asset(
                       "assets/images/true-choice.png",
-                      scale: 1.3,
+                      scale: 1.8,
                     ),
                     onTap: () {
                       checkAnswer(result, "true");
@@ -306,7 +306,7 @@ class _TrueOrFalseScreen extends State<TrueOrFalseScreen> {
                   child: InkWell(
                     child: Image.asset(
                       "assets/images/false-choice.png",
-                      scale: 1.3,
+                      scale: 1.8,
                     ),
                     onTap: () {
                       checkAnswer(result, "false");
