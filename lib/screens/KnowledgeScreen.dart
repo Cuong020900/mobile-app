@@ -99,7 +99,7 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
     List<String> list = <String>[];
     int count = 0;
     maps.forEach((element) {
-      if (count == 2) {
+      if (count == 3) {
         list.add("\n\n");
         count = 0;
       }
@@ -117,16 +117,16 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
     if (maps.isEmpty) {
       if (this.calculation == "plus") {
         calculationSet =
-            "_ + 1 = _   _ + 2 = _ \n\n_ + 3 = _   _ + 4 = _ \n\n_ + 5 = _   _ + 6 = _ \n\n_ + 7 = _   _ + 8 = _ \n\n_ + 9 = _   _ + 10 = _";
+            "_ + 1 = _   _ + 2 = _   _ + 3 = _ \n\n_ + 4 = _   _ + 5 = _   _ + 6 = _ \n\n_ + 7 = _   _ + 8 = _   _ + 9 = _ \n\n_ + 10 = _";
       } else if (this.calculation == "minus") {
         calculationSet =
-            "_ - 1 = _   _ - 2 = _ \n\n_ - 3 = _   _ - 4 = _ \n\n_ - 5 = _   _ - 6 = _ \n\n_ - 7 = _   _ - 8 = _ \n\n_ - 9 = _   _ - 10 = _";
+        "_ - 1 = _   _ - 2 = _   _ - 3 = _ \n\n_ - 4 = _   _ - 5 = _   _ - 6 = _ \n\n_ - 7 = _   _ - 8 = _   _ - 9 = _ \n\n_ - 10 = _";
       } else if (this.calculation == "duplicate") {
         calculationSet =
-            "_ x 1 = _   _ x 2 = _ \n\n_ x 3 = _   _ x 4 = _ \n\n_ x 5 = _   _ x 6 = _ \n\n_ x 7 = _   _ x 8 = _ \n\n_ x 9 = _   _ x 10 = _";
+        "_ x 1 = _   _ x 2 = _   _ x 3 = _ \n\n_ x 4 = _   _ x 5 = _   _ x 6 = _ \n\n_ x 7 = _   _ x 8 = _   _ x 9 = _ \n\n_ x 10 = _";
       } else if (this.calculation == "divide") {
         calculationSet =
-            "_ : 1 = _   _ : 2 = _ \n\n_ : 3 = _   _ : 4 = _ \n\n_ : 5 = _   _ : 6 = _ \n\n_ : 7 = _   _ : 8 = _ \n\n_ : 9 = _   _ : 10 = _";
+        "_ : 1 = _   _ : 2 = _   _ : 3 = _ \n\n_ : 4 = _   _ : 5 = _   _ : 6 = _ \n\n_ : 7 = _   _ : 8 = _   _ : 9 = _ \n\n_ : 10 = _";
       }
     } else {
       calculationSet = "";
@@ -164,21 +164,21 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
         children: [
           Stack(
             children: [
-              InkWell(
-                child: Image.asset(
-                  "assets/images/no_back_image.png",
-                  scale: 1.5,
-                ),
-                onTap: () {
-                  _navigateBack(context);
-                },
-              ),
+              // InkWell(
+              //   child: Image.asset(
+              //     "assets/images/no_back_image.png",
+              //     scale: 1.5,
+              //   ),
+              //   onTap: () {
+              //     _navigateBack(context);
+              //   },
+              // ),
               Align(
-                  alignment: Alignment(1.1, 2),
+                  alignment: Alignment(0.1, 1.5),
                   child: Container(
-                    alignment: Alignment(0, 2),
-                    height: 220,
-                    width: 210,
+                    alignment: Alignment(-1, 5),
+                    height: 150,
+                    width: 250,
                     child: Text(
                       calculationSet,
                       style: TextStyle(fontSize: 20, color: Colors.white),
@@ -195,27 +195,17 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
           Stack(
             children: [
               Align(
-                alignment: Alignment.topCenter,
-                child: Image.asset("assets/images/opened_book.png"),
-              ),
-              Align(
-                alignment: Alignment(-0.45, -0.85),
+                alignment: Alignment(0, -1.5),
                 child: Text(
                   'Section',
-                  style: TextStyle(fontSize: 24),
+                  style: TextStyle(fontSize: 34, color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
               ),
               GridView.count(
                 crossAxisCount: 6,
-                childAspectRatio: (1.6 / 1),
+                childAspectRatio: (1.6 / 0.8),
                 mainAxisSpacing: 4,
                 children: [
-                  Text(""),
-                  Text(""),
-                  Text(""),
-                  Text(""),
-                  Text(""),
-                  Text(""),
                   Text(""),
                   InkWell(
                     onTap: () {
@@ -230,7 +220,7 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
                       Section(2);
                     },
                     child: Align(
-                      child: Image.asset(Section2),
+                      child: Image.asset(Section2, fit: BoxFit.fitHeight,),
                     ),
                   ),
                   InkWell(
@@ -286,8 +276,7 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
                       child: Image.asset(Section8),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
+                  InkWell(                    onTap: () {
                       Section(9);
                     },
                     child: Align(
@@ -302,7 +291,7 @@ class _KnowledgeScreen extends State<KnowledgeScreen> {
       ),
       decoration: BoxDecoration(
           image: DecorationImage(
-        image: AssetImage("assets/images/kienthuc_background.png"),
+        image: AssetImage("assets/images/knowledge_bg.png"),
         fit: BoxFit.cover,
       )),
     ));

@@ -1,4 +1,5 @@
 import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/screens/GameModeScreen.dart';
@@ -7,8 +8,10 @@ import 'package:store_redirect/store_redirect.dart';
 class MainScreen extends StatelessWidget {
   // This widget is the root of your application.
   static AudioCache player = AudioCache();
-  playMusic() async {
-    player.loop(
+  static AudioPlayer playing;
+  static playMusic() async {
+    playing?.stop();
+    playing = await player.loop(
         'musics/bg3.mp3',
         volume: 2.0);
   }

@@ -198,14 +198,14 @@ class _QuizScreen extends State<QuizScreen> {
                     width: 140,
                     height: 140,
                     child: Align(
-                      alignment: Alignment(-0.5, 0),
+                      alignment: Alignment(-0.2, 0),
                       child: Text("  " + trueAnswer.toString(),
-                          style: TextStyle(fontSize: 70)),
+                          style: TextStyle(fontSize: 50, color: Colors.green)),
                     ),
                     decoration: BoxDecoration(
                         image: DecorationImage(
                       image: AssetImage(
-                          "assets/images/Number of Right Answer.png"),
+                          "assets/images/true_button.png"),
                       fit: BoxFit.contain,
                     )),
                   ),
@@ -341,7 +341,7 @@ class _QuizScreen extends State<QuizScreen> {
                           },
                         )),
                     Align(
-                      alignment: Alignment(0, 2.2),
+                      alignment: Alignment(0, 2.1),
                       child: InkWell(
                         child: Text(
                           answerList.elementAt(choice4Index),

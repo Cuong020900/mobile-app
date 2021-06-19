@@ -132,7 +132,7 @@ class _TimeScreen extends State<TimeScreen> {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Image.asset(
-                      "assets/images/back_image.png",
+                      "assets/images/_back_image.png",
                       scale: 1.7,
                     ),
                   ),
@@ -146,14 +146,14 @@ class _TimeScreen extends State<TimeScreen> {
                     width: 120,
                     height: 110,
                     child: Align(
-                      alignment: Alignment(-0.3, 0),
-                      child: Text("  " + trueAnswer.toString(),
-                          style: TextStyle(fontSize: 50)),
+                      alignment: Alignment(-0.6, -0.5),
+                      child: Text("Score: " + trueAnswer.toString(),
+                          style: TextStyle(fontSize: 24, color: Colors.green)),
                     ),
                     decoration: BoxDecoration(
                         image: DecorationImage(
                       image: AssetImage(
-                          "assets/images/Number of Right Answer.png"),
+                          "assets/images/no_Number of Right Answer.png"),
                       fit: BoxFit.cover,
                     )),
                   ),
@@ -164,13 +164,13 @@ class _TimeScreen extends State<TimeScreen> {
                     width: 120,
                     height: 110,
                     child: Align(
-                      alignment: Alignment(-0.5, 0),
-                      child: Text("  " + gameTime.toString(),
-                          style: TextStyle(fontSize: 50)),
+                      alignment: Alignment(-0.5, -0.5),
+                      child: Text("Time left: " + gameTime.toString(),
+                          style: TextStyle(fontSize: 24, color: Colors.red)),
                     ),
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage("assets/images/timer_theme.png"),
+                      image: AssetImage("assets/images/no_timer_theme.png"),
                       fit: BoxFit.cover,
                     )),
                   ),
@@ -189,14 +189,14 @@ class _TimeScreen extends State<TimeScreen> {
                   ),
                 ),
                 Align(
-                  alignment: Alignment(0, -1),
+                  alignment: Alignment(-0.2, -1.3),
                   child: Text(
                     question,
-                    style: TextStyle(fontSize: 36),
+                    style: TextStyle(fontSize: 36, color: Colors.white),
                   ),
                 ),
                 Align(
-                  alignment: Alignment(0.7, -1.3),
+                  alignment: Alignment(0.5, -1.9),
                   child: Container(
                     width: 85,
                     height: 75,
@@ -204,7 +204,7 @@ class _TimeScreen extends State<TimeScreen> {
                         controller: myController,
                         focusNode: playerAnswer,
                         keyboardType: TextInputType.number,
-                        style: TextStyle(fontSize: 36),
+                        style: TextStyle(fontSize: 36, color: Colors.white),
                         decoration:
                             InputDecoration(border: OutlineInputBorder()),
                         onSubmitted: (String str) {
@@ -225,7 +225,7 @@ class _TimeScreen extends State<TimeScreen> {
         ),
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage("assets/images/class_background_2.jpg"),
+          image: AssetImage("assets/images/knowledge_2.png"),
           fit: BoxFit.cover,
         )),
       ),

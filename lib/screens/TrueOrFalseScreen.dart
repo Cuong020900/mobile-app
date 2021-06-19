@@ -26,7 +26,7 @@ class _TrueOrFalseScreen extends State<TrueOrFalseScreen> {
     String path = join(documentsDirectory.path, "working_data.db");
 
     ByteData data =
-        await rootBundle.load(join("database", "maths_game_database.db"));
+        await rootBundle.load(join("database", "mobile_app_database.db"));
     List<int> bytes =
         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
     await new File(path).writeAsBytes(bytes);
